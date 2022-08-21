@@ -1,4 +1,4 @@
-#sorting algoirthm names bubble sort google it to know more about it
+#sorting algoirthm named bubble sort google it to know more about it
 
 sortlist = list(map(int, input().split()))
 count = 0
