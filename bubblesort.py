@@ -1,6 +1,5 @@
 #sorting algoirthm names bubble sort google it to know more about it
 
-#turn array into a list as lists can be modified
 sortlist = list(map(int, input().split()))
 count = 0
 for x in range(1, (len(sortlist) + 1)):
