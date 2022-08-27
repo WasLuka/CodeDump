@@ -1,7 +1,28 @@
 #include <iostream>
 using namespace std;
 
-//add a sorting algorithm that outputs every person based on how many pancakes they ate
+void sort(int array[10]){
+    int temporary;
+    int tamporary;
+    int arrey[10] = {1,2,3,4,5,6,7,8,9,10};
+    for (int j=1;j<11;j++){
+        for (int i=0;i<10-j;i++){
+            
+            if (array[i]>array[i+1]){
+                temporary = array[i];
+                array[i] = array[i+1];
+                array[i+1] = temporary;
+                
+                tamporary = arrey[i];
+                arrey[i] = arrey[i+1];
+                arrey[i+1] = tamporary;
+            }
+        }
+    }
+    for (int i=0;i<10;i++){
+        cout << "Person " << arrey[i] << ": ate " << array[i] << " Pancakes" << endl;
+    }
+}
 
 int main(){
     int people[10];
@@ -21,7 +42,7 @@ int main(){
     cout << "Person " << (mostnofp+1) << " ate the most pancakes " << people[mostnofp] << endl;
     cout << "person " << (leastnofp+1) << " ate the least pancakes " << people[leastnofp] << endl;
 
-
+    sort(people);
 
     return 0;
 }
