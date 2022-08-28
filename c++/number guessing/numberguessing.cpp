@@ -1,7 +1,7 @@
 #include <iostream>
 
 int x = 0;
-int y = 100;
+int y = 101;
 int count = 0;
 
 int main() {

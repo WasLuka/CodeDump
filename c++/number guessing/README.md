@@ -2,6 +2,7 @@ This is a program that guesses a number that you come up with.
 The numbers that can guess are 1<=X>=100.
 
 Commands:
+
 yes -It chose the right number,
 h -It chose too high number,
 l - It choose too low number,
