@@ -1,0 +1,1 @@
+This is a program that handles files and reads/writes to them. The goal of this was to learn using the fstream library
