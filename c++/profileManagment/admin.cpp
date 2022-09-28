@@ -42,7 +42,11 @@ int remove(std::string pass)
     myAdmin << "\n";
     myAdmin.close();
     }
-    else{
+    if (password == "exit")
+    {
+        return 0;
+    }
+    if (password != pass){
         goto password;
     }
     return 0;
