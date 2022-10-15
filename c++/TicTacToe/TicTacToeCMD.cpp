@@ -3,7 +3,9 @@
 int main()
 {
     int x, y;
-    char e;
+    char e, a;
+    up:
+    system("cls");
     char table[3][3] =
         {
             {'0', '0', '0'},
@@ -14,7 +16,6 @@ int main()
 
     for (int m = 1; m < 10; m++)
     {
-
         std::cout << table[0][0] << " " << table[0][1] << " " << table[0][2] << "\n";
         std::cout << table[1][0] << " " << table[1][1] << " " << table[1][2] << "\n";
         std::cout << table[2][0] << " " << table[2][1] << " " << table[2][2] << "\n";
@@ -58,6 +59,7 @@ int main()
             if (table[i][0] == table[i][1] && table[i][1] == table[i][2] && table[i][1] != '0')
             {
                 std::cout << "Congrartulations " << table[i][1] << " won!\n";
+                goto end;
             }
         }
         for (int i = 0; i < 3; i++)
@@ -65,17 +67,27 @@ int main()
             if (table[0][i] == table[1][i] && table[1][i] == table[2][i] && table[1][i] != '0')
             {
                 std::cout << "Congrartulations " << table[1][i] << " won!\n";
+                goto end;
             }
         }
         if (table[0][0] == table[1][1] && table[1][1] == table[2][2] && table[1][1] != '0')
         {
             std::cout << "Congrartulations " << table[1][1] << " won!\n";
+            goto end;
         }
         if (table[0][2] == table[1][1] && table[1][1] == table[2][0] && table[1][1] != '0')
         {
             std::cout << "Congrartulations " << table[1][1] << " won!\n";
+            goto end;
         }
     }
-
-    system("sleep");
+    end:
+    std::cout << "Do you want to play again?[y/n] ";
+    std::cin >> a;
+    if (a == 'y')
+    {
+        goto up;
+    }
+    system("pause");
+    return 0;
 }
