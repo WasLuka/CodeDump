@@ -1,15 +1,20 @@
 #include <iostream>
 #include <windows.h>
 #include <conio.h>
+#include <time.h>
+#include <random>
 
 int main()
 {
     short x = 0,y = 0;//initializing all the needed values and clearing the screen
+    short rX, rY;
     char input;
     char consoleChar ='$';
+    char consoleFoodChar = '@';
     char clearConsoleChar = ' ';
     DWORD nNumberOfCharsToWrite = 1;
     COORD pos = {x, y};
+    COORD randomPos;
 
     HANDLE m_hConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);//disable the cursor visibility
     DWORD dwSize = 100;
@@ -18,8 +23,17 @@ int main()
 
     SetConsoleCursorInfo(m_hConsoleHandle, &m_lpConsoleCursorInfo);
 
+    srand(time(0));
+
     system("cls");//clear screen for any errors or past use of the terminal
     
+    rX = rand() % 21;
+    rY = rand() % 11;
+    randomPos = {rX,rY};
+
+    SetConsoleCursorPosition(m_hConsoleHandle, randomPos);
+    WriteConsole(m_hConsoleHandle, &consoleFoodChar, nNumberOfCharsToWrite, NULL, NULL);
+
     while(1)
     {
 
@@ -66,6 +80,16 @@ int main()
     pos = {x, y};
     SetConsoleCursorPosition(m_hConsoleHandle, pos);
     WriteConsole(m_hConsoleHandle, &consoleChar, nNumberOfCharsToWrite, NULL, NULL);
+    
+    if (x == rX && y == rY)
+    {
+        rX = rand() % 21;
+        rY = rand() % 11;
+        randomPos = {rX,rY};
+        SetConsoleCursorPosition(m_hConsoleHandle, randomPos);
+        WriteConsole(m_hConsoleHandle, &consoleFoodChar, nNumberOfCharsToWrite, NULL, NULL);
+        SetConsoleCursorPosition(m_hConsoleHandle, pos);
+    }
 
     }
     end:;
