@@ -175,6 +175,13 @@ int main()
                     tailPos[j][0] = tailPos[j-1][0];
                     tailPos[j][1] = tailPos[j-1][1];
                 }
+                for(int j = 2;j < tailLength+1;j++)
+                {
+                    if(tailPos[j][0] == tailPos[0][0] && tailPos[j][1] == tailPos[0][1])
+                    {
+                        goto start;
+                    }
+                }
 
                 lastPos = {tailPos[tailLength][0],tailPos[tailLength][1]};
 
